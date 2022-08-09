@@ -1,0 +1,22 @@
+.card-item {
+  margin-top: 8px;
+}
+
+.cart-name {
+  font-size: 20px;
+}
+
+.cart-btn {
+  padding: 0px !important;
+  margin: 0px !important;
+  height: 0px !important;
+}
+
+.link-btn {
+  text-decoration: none;
+}
+
+.home-btn {
+  color: white;
+  text-decoration: none;
+}
