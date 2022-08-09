@@ -8,7 +8,7 @@ class ProductsView extends Component {
   render() {
     return (
       <>
-        <Grid className='gridpost'>
+        <Grid className='grid-post'>
           {
             this.props.products.map(product =>
               < Card sx={{ maxWidth: 345 }} className="card-item" key={product.id}>
