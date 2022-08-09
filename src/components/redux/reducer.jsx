@@ -9,7 +9,7 @@ const reducer = (state, action) => {
     case 'ADD_TO_CART':
       return {
         cart: state.cart.concat(action.product),
-        products: state.products.filter(p => p !== action.product)
+        products: state.products
       }
     case 'REMOVE_FROM_CART':
       return {

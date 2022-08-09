@@ -9,7 +9,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 const CartView = (props) => {
-  // render() {
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">

@@ -1,4 +1,4 @@
-export const item = [
+export const ProductList = [
     {
         "img": "https://rukminim1.flixcart.com/image/880/1056/kk2wl8w0/shoe/q/a/1/12189600-43-jack-jones-alloy-original-imafzg7cfjwacddz.jpeg?q=50",
         "id": "01",

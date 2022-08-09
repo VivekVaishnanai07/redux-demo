@@ -6,7 +6,6 @@ import CartView from "./components/cart-view/cart-view";
 import ProductsView from "./components/products-view/products-view"
 import "./App.css"
 
-
 function App() {
   store.dispatch(loadProducts());
   return (

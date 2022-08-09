@@ -5,12 +5,9 @@ import thunk from 'redux-thunk';
 import reducer from "./reducer";
 import { logger } from "redux-logger";
 
-
 const initialState = {
     cart: [],
     products: []
 }
 
-
-export const store = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(logger, thunk)
-))
+export const store = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(logger, thunk)))

@@ -1,5 +1,6 @@
-import { item } from "../productData/productList";
+import { ProductList } from "../../util/constant";
 
+//Add product to cart
 const addToCart = product => {
   return {
     type: 'ADD_TO_CART',
@@ -7,6 +8,7 @@ const addToCart = product => {
   }
 };
 
+//Remove product to cart
 const removeFromCart = product => {
   return {
     type: 'REMOVE_FROM_CART',
@@ -14,13 +16,14 @@ const removeFromCart = product => {
   }
 };
 
+//Load products
 const loadProducts = () => {
-  let products = item;
+  let products = ProductList;
   return {
     type: 'LOAD_PRODUCTS',
     products: products,
-    cart:[]
+    cart: []
   };
 }
 
-export {addToCart, removeFromCart, loadProducts};
+export { addToCart, removeFromCart, loadProducts };

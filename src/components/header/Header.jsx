@@ -16,13 +16,10 @@ function Header(props) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link className='home-btn' to="/">
-              Home
-            </Link>
+            <Link className='home-btn' to="/">Home</Link>
           </Typography>
-
           <Button color="inherit">
-            <Link className='home-btn' to="/cartView">
+            <Link className='home-btn' to="/cart-view">
               <Badge badgeContent={selectedItems.length} color="error">
                 <ShoppingCartIcon />
               </Badge>
@@ -34,7 +31,6 @@ function Header(props) {
     </Box>
   );
 }
-
 
 const mapStateToProps = (state) => {
   return {
