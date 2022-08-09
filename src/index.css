@@ -1,9 +1,0 @@
-.grid-post {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 23px;
-  margin-left: 100px;
-  margin-right: 100px;
-  margin-bottom: 80px;
-  margin-top: 20px;
-}

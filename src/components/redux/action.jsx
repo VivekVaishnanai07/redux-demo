@@ -1,7 +1,7 @@
 import { ProductList } from "../../util/constant";
 
 //Add product to cart
-const addToCart = product => {
+const addToCart = (product) => {
   return {
     type: 'ADD_TO_CART',
     product

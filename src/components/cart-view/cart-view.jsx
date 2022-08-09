@@ -15,6 +15,9 @@ const CartView = (props) => {
         <TableHead>
           <TableRow>
             <TableCell>Shopping</TableCell>
+            <TableCell></TableCell>
+            <TableCell></TableCell>
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

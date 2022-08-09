@@ -7,6 +7,7 @@ const reducer = (state, action) => {
         cart: action.cart
       }
     case 'ADD_TO_CART':
+      console.log(action)
       return {
         cart: state.cart.concat(action.product),
         products: state.products
