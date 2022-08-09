@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addToCart } from "../redux/action";
 
-class ProductList extends Component {
+class ProductsView extends Component {
   render() {
     return (
       <>
@@ -23,8 +23,7 @@ class ProductList extends Component {
                     <Grid item xs={12} className="card-description">
                       <Typography variant="body2">
                         <b>{product.name}</b><br />
-                        {product.description}
-                        <br />
+                        {product.description}<br />
                         <b>Price: </b>${product.price}
                       </Typography>
                     </Grid>
@@ -55,4 +54,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductList)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsView)
