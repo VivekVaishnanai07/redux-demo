@@ -15,7 +15,6 @@ const removeFromCart = product => {
 };
 
 const loadProducts = () => {
-// const loadProductsOffline = () => {
   let products = item;
   return {
     type: 'LOAD_PRODUCTS',
