@@ -1,15 +1,15 @@
 import { CardContent, CardMedia, Typography } from '@material-ui/core';
 import { Button, Card, Grid } from '@mui/material';
+import { addToCart } from "../redux/action"
 import React from 'react';
 import { connect } from 'react-redux';
-import { addToCart } from "../redux/action";
 
-const ProductsView = (props) => {
+const ProductsView = ({ products }) => {
   return (
     <>
       <Grid className='grid-post'>
         {
-          props.products.map(product =>
+          products.map(product =>
             < Card sx={{ maxWidth: 345 }} className="card-item" key={product.id}>
               <CardMedia
                 component="img"
@@ -27,7 +27,7 @@ const ProductsView = (props) => {
                     </Typography>
                   </Grid>
                   <Grid item xs={12}>
-                    <Button variant="contained" onClick={() => props.addToCart(product)} role="button"> ADD TO CART</Button>
+                    <Button variant="contained" onClick={() => addToCart(product.id)} role="button"> ADD TO CART</Button>
                   </Grid>
                 </Grid>
               </CardContent>

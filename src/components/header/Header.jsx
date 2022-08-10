@@ -7,10 +7,18 @@ import { connect } from "react-redux";
 import Toolbar from '@mui/material/Toolbar';
 import { Link } from "react-router-dom"
 import Typography from '@mui/material/Typography';
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 
-function Header(props) {
-  let selectedItems = props.cart
+function Header({ cart }) {
+  const [cartCount, setCartCount] = useState()
+
+  useEffect(() => {
+    let count = 0;
+    cart.forEach(item => (
+      count += item.qty
+    ));
+    setCartCount(count)
+  }, [cart, cartCount])
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -20,7 +28,7 @@ function Header(props) {
           </Typography>
           <Button color="inherit">
             <Link className='home-btn' to="/cart-view">
-              <Badge badgeContent={selectedItems.length} color="error"><ShoppingCartIcon /></Badge>
+              <Badge badgeContent={cartCount} color="error"><ShoppingCartIcon /></Badge>
               Cart
             </Link>
           </Button>
@@ -32,7 +40,7 @@ function Header(props) {
 
 const mapStateToProps = (state) => {
   return {
-    cart: state.cart,
+    cart: state.shop.cart,
   };
 };
 

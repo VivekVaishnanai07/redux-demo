@@ -1,26 +1,45 @@
-import { ProductList } from '../../util/constant';
+import {
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  ADJUST_QTY,
+  LOAD_PRODUCTS
+} from "./types"
 
-const addToCart = (product) => {
+//Add product to cart
+export const addToCart = (itemID) => {
   return {
-    type: 'ADD_TO_CART',
-    product,
-  };
+    type: ADD_TO_CART,
+    payload: {
+      id: itemID
+    }
+  }
 };
 
-const removeFromCart = (product) => {
+//Remove product to cart
+export const removeFromCart = (itemID) => {
   return {
-    type: 'REMOVE_FROM_CART',
-    product,
-  };
+    type: REMOVE_FROM_CART,
+    payload: {
+      id: itemID
+    }
+  }
 };
 
-const loadProducts = () => {
-  let products = ProductList;
+//Adjust qty 
+export const adjustQty = (itemID, value) => {
   return {
-    type: 'LOAD_PRODUCTS',
-    products: products,
-    cart: [],
-  };
-};
+    type: ADJUST_QTY,
+    payload: {
+      id: itemID,
+      qty: value
+    }
+  }
+}
 
-export { addToCart, removeFromCart, loadProducts };
+//Load products
+export const loadProducts = (item) => {
+  return {
+    type: LOAD_PRODUCTS,
+    payload: item
+  };
+}
