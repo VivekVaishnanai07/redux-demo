@@ -38,18 +38,16 @@ const ProductsView = ({ products }) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    products: state.products,
-  };
-};
+    products: state.shop.products
+  }
+}
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    addToCart(product) {
-      dispatch(addToCart(product));
-    },
-  };
+    addToCart: (id) => dispatch(addToCart(id))
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsView)
