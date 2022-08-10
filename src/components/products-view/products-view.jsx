@@ -1,15 +1,15 @@
 import { CardContent, CardMedia, Typography } from '@material-ui/core';
 import { Button, Card, Grid } from '@mui/material';
-import { addToCart } from "../redux/action"
 import React from 'react';
 import { connect } from 'react-redux';
+import { addToCart } from "../redux/action";
 
-const ProductsView = ({ products }) => {
+const ProductsView = (props) => {
   return (
     <>
       <Grid className='grid-post'>
         {
-          products.map(product =>
+          props.products.map(product =>
             < Card sx={{ maxWidth: 345 }} className="card-item" key={product.id}>
               <CardMedia
                 component="img"
@@ -27,7 +27,7 @@ const ProductsView = ({ products }) => {
                     </Typography>
                   </Grid>
                   <Grid item xs={12}>
-                    <Button variant="contained" onClick={() =>addToCart(product.id)} role="button"> ADD TO CART</Button>
+                    <Button variant="contained" onClick={() => props.addToCart(product)} role="button"> ADD TO CART</Button>
                   </Grid>
                 </Grid>
               </CardContent>
@@ -38,16 +38,18 @@ const ProductsView = ({ products }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    products: state.shop.products
-  }
-}
+    products: state.products,
+  };
+};
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (id) => dispatch(addToCart(id))
-  }
+    addToCart(product) {
+      dispatch(addToCart(product));
+    },
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsView)
