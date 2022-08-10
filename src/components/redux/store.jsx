@@ -1,5 +1,5 @@
 import { combineReducers, createStore } from "redux";
-import shopReducer from "./reducer";
+import shopReducer from "./shop-reducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 const rootReducer = combineReducers({

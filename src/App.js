@@ -1,13 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "./components/header/header"
-import { loadProducts } from "./components/redux/action";
-import store from "./components/redux/store";
+import "./App.css";
 import CartView from "./components/cart-view/cart-view";
-import ProductsView from "./components/products-view/products-view"
-import "./App.css"
+import Header from "./components/header/header";
+import ProductsView from "./components/products-view/products-view";
 
 function App() {
-  store.dispatch(loadProducts());
   return (
     <BrowserRouter>
       <Header />
