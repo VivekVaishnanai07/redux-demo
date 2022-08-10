@@ -20,9 +20,7 @@ function Header(props) {
           </Typography>
           <Button color="inherit">
             <Link className='home-btn' to="/cart-view">
-              <Badge badgeContent={selectedItems.length} color="error">
-                <ShoppingCartIcon />
-              </Badge>
+              <Badge badgeContent={selectedItems.length} color="error"><ShoppingCartIcon /></Badge>
               Cart
             </Link>
           </Button>
@@ -37,6 +35,5 @@ const mapStateToProps = (state) => {
     cart: state.cart,
   };
 };
-
 
 export default connect(mapStateToProps)(Header)
