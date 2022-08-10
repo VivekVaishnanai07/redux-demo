@@ -1,29 +1,40 @@
-import { ProductList } from "../../util/constant";
+import * as actionTypes from "./types"
 
 //Add product to cart
-const addToCart = (product) => {
+export const addToCart = (itemID) => {
   return {
-    type: 'ADD_TO_CART',
-    product
+    type: actionTypes.ADD_TO_CART,
+    payload: {
+      id: itemID
+    }
   }
 };
 
 //Remove product to cart
-const removeFromCart = product => {
+export const removeFromCart = (itemID) => {
   return {
-    type: 'REMOVE_FROM_CART',
-    product
+    type: actionTypes.REMOVE_FROM_CART,
+    payload: {
+      id: itemID
+    }
   }
 };
 
-//Load products
-const loadProducts = () => {
-  let products = ProductList;
+//Adjust qty 
+export const adjustQty = (itemID, value) => {
   return {
-    type: 'LOAD_PRODUCTS',
-    products: products,
-    cart: []
-  };
+    type: actionTypes.ADJUST_QTY,
+    payload: {
+      id: itemID,
+      qty: value
+    }
+  }
 }
 
-export { addToCart, removeFromCart, loadProducts };
+//Load products
+export const loadProducts = (item) => {
+  return {
+    type: actionTypes.LOAD_PRODUCTS,
+    payload: item
+  };
+}

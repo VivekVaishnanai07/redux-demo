@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-const CartView = (props) => {
+const CartView = ({ cart }) => {
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
@@ -21,18 +21,18 @@ const CartView = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.cart.map((product) => (
+          {cart.map((product) => (
             <TableRow key={product.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
               <TableCell component="th" scope="row">{product.name}</TableCell>
               <TableCell >{product.description}</TableCell>
               <TableCell >${product.price}</TableCell>
-              <TableCell align="right"><Button variant="outlined" color="error" onClick={() => props.removeFromCart(product)}>Remove</Button></TableCell>
+              <TableCell align="right"><Button variant="outlined" color="error" onClick={() => removeFromCart(product)}>Remove</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
         <TableFooter>
           <TableRow>
-            <TableCell align="right"><b>Total: ${props.cart.reduce((previousValue, currentValue) => previousValue + currentValue.price, 0)}</b></TableCell>
+            <TableCell align="right"><b>Total: ${cart.reduce((previousValue, currentValue) => previousValue + currentValue.price, 0)}</b></TableCell>
           </TableRow>
         </TableFooter>
       </Table>
@@ -43,7 +43,7 @@ const CartView = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    cart: state.cart,
+    cart: state.shop.cart,
   };
 };
 
