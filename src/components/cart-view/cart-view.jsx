@@ -7,8 +7,20 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import CartItem from './cart-item';
 
-const CartView = ({ cart }) => {
+const CartView = ({ cart, removeFromCart }) => {
+  const [totalPrice, setTotalPrice] = React.useState(0);
+console.log(cart.map((data)=>data.qty))
+  React.useEffect(() => {
+    let price = 0;
+
+    cart.forEach((item) => {
+      price += item.qty * item.price;
+    });
+
+    setTotalPrice(price);
+  }, [cart, totalPrice, setTotalPrice]);
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
@@ -25,20 +37,22 @@ const CartView = ({ cart }) => {
             <TableRow key={product.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
               <TableCell component="th" scope="row">{product.name}</TableCell>
               <TableCell >{product.description}</TableCell>
+              <TableCell >
+                <CartItem />
+              </TableCell>
               <TableCell >${product.price}</TableCell>
-              <TableCell align="right"><Button variant="outlined" color="error" onClick={() => removeFromCart(product)}>Remove</Button></TableCell>
+              <TableCell align="right"><Button variant="outlined" color="error" onClick={() => removeFromCart(product.id)}>Remove</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
         <TableFooter>
           <TableRow>
-            <TableCell align="right"><b>Total: ${cart.reduce((previousValue, currentValue) => previousValue + currentValue.price, 0)}</b></TableCell>
+            <TableCell align="right"><b>Total: ${totalPrice}</b></TableCell>
           </TableRow>
         </TableFooter>
       </Table>
     </TableContainer>
   );
-  // }
 };
 
 const mapStateToProps = (state) => {
@@ -49,9 +63,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    removeFromCart(product) {
-      dispatch(removeFromCart(product));
-    },
+    removeFromCart: (id) => dispatch(removeFromCart(id))
   };
 };
 

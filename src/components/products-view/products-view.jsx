@@ -4,7 +4,7 @@ import { addToCart } from "../redux/action"
 import React from 'react';
 import { connect } from 'react-redux';
 
-const ProductsView = ({ products }) => {
+const ProductsView = ({ products, addToCart }) => {
   return (
     <>
       <Grid className='grid-post'>
