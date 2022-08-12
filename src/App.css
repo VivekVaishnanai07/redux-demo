@@ -1,5 +1,6 @@
 .home-btn {
   color: white;
+  text-decoration: none;
 }
 
 .grid-post {
@@ -12,6 +13,10 @@
   margin-top: 20px;
 }
 
-.cart-img{
+.cart-img {
   width: 50px;
+}
+
+#user-btn {
+  margin: 10px;
 }
