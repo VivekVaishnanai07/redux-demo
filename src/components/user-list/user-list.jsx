@@ -3,7 +3,6 @@ import { connect, useSelector } from "react-redux"
 import { apiUserData } from "../../redux/user-list-redux/user-list-reducer"
 import Paper from '@mui/material/Paper';
 
-
 function GetUserList() {
   const userData = useSelector(state => state.user.users)
   return (

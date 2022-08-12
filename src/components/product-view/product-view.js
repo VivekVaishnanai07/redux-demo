@@ -6,35 +6,28 @@ import { addToCart } from "../../redux/product-redux/product-actions";
 
 const ProductView = ({ products, addToCart }) => {
   return (
-    <div>
-      <Grid className='grid-post'>
-        {
-          products.map((product) => (
-            < Card sx={{ maxWidth: 345 }} className="card-item" key={product.id}>
-              <CardMedia
-                component="img"
-                height="194"
-                image={product.img}
-                alt="Paella dish"
-              />
-              <CardContent>
-                <Grid container spacing={2}>
-                  <Grid item xs={12} className="card-description">
-                    <Typography variant="body2">
-                      <b>{product.name}</b><br />
-                      {product.description}<br />
-                      <b>Price: </b>${product.price}
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Button variant="contained" onClick={() => addToCart(product.id)} role="button"> ADD TO CART</Button>
-                  </Grid>
+    <Grid className='grid-post'>
+      {
+        products.map((product) => (
+          < Card sx={{ maxWidth: 345 }} className="card-item" key={product.id}>
+            <CardMedia component="img" height="194" image={product.img} alt="Paella dish" />
+            <CardContent>
+              <Grid container spacing={2}>
+                <Grid item xs={12} className="card-description">
+                  <Typography variant="body2">
+                    <b>{product.name}</b><br />
+                    {product.description}<br />
+                    <b>Price: </b>${product.price}
+                  </Typography>
                 </Grid>
-              </CardContent>
-            </Card>
-          ))}
-      </Grid>
-    </div>
+                <Grid item xs={12}>
+                  <Button variant="contained" onClick={() => addToCart(product.id)} role="button"> ADD TO CART</Button>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+        ))}
+    </Grid>
   );
 };
 

@@ -1,10 +1,7 @@
 import { Box, FormControl, OutlinedInput } from "@material-ui/core";
 import React, { useState } from "react";
-
 import { connect } from "react-redux";
-import {
-  adjustItemQty,
-} from "../../redux/product-redux/product-actions";
+import { adjustItemQty } from "../../redux/product-redux/product-actions";
 
 const CartItem = ({ item, adjustQty }) => {
   const [input, setInput] = useState(item.qty);
@@ -13,7 +10,6 @@ const CartItem = ({ item, adjustQty }) => {
     setInput(e.target.value);
     adjustQty(item.id, e.target.value);
   };
-
   return (
     <div>
       <Box component="form" noValidate autoComplete="off">

@@ -31,11 +31,8 @@ function Header({ cart }) {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link className='home-btn' id="user-btn" to="/user-list">User</Link>
           </Typography>
-          <Button color="inherit">
-            <Link className='home-btn' to="/cart-view">
-              <Badge badgeContent={cartCount} color="error"><ShoppingCartIcon /></Badge>
-              Cart
-            </Link>
+          <Button color="inherit"><Link className='home-btn' to="/cart-view">
+            <Badge badgeContent={cartCount} color="error"><ShoppingCartIcon /></Badge> Cart</Link>
           </Button>
         </Toolbar>
       </AppBar>

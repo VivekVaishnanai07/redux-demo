@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { removeFromCart } from '../../redux/product-redux/product-actions';
 import CartItem from './cart-item';
 
-
 const CartView = ({ cart, removeFromCart }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
@@ -42,9 +41,7 @@ const CartView = ({ cart, removeFromCart }) => {
               <TableCell component="th" scope="row"><img src={item.img} alt="img" className='cart-img' /></TableCell>
               <TableCell component="th" scope="row">{item.name}</TableCell>
               <TableCell >{item.description}</TableCell>
-              <TableCell >
-                <CartItem key={item.id} item={item} />
-              </TableCell>
+              <TableCell ><CartItem key={item.id} item={item} /></TableCell>
               <TableCell >${item.price}</TableCell>
               <TableCell align="right"><Button variant="outlined" color="error" onClick={() => removeFromCart(item.id)}>Remove</Button></TableCell>
             </TableRow>
