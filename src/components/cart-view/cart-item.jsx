@@ -1,6 +1,6 @@
 import { Box, FormControl, OutlinedInput } from "@mui/material";
 import { useState } from "react";
-import { adjustItemQty } from '../redux/action';
+import { adjustItemQty } from '../redux/Shopping/shopping-actions';
 import { connect } from "react-redux";
 
 const CartItem = ({ item, adjustQty }) => {

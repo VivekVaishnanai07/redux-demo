@@ -1,7 +1,7 @@
-import * as actionTypes from "./types";
+import * as actionTypes from "./shopping-types";
 
 const INITIAL_STATE = {
-  products: [
+  products:  [
     {
       img: "https://rukminim1.flixcart.com/image/880/1056/kk2wl8w0/shoe/q/a/1/12189600-43-jack-jones-alloy-original-imafzg7cfjwacddz.jpeg?q=50",
       id: "01",
@@ -46,7 +46,7 @@ const INITIAL_STATE = {
   currentItem: null,
 };
 
-const Reducer = (state = INITIAL_STATE, action) => {
+const shopReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actionTypes.ADD_TO_CART:
       // Great Item data from products array
@@ -62,10 +62,10 @@ const Reducer = (state = INITIAL_STATE, action) => {
         ...state,
         cart: inCart
           ? state.cart.map((item) =>
-            item.id === action.payload.id
-              ? { ...item, qty: item.qty + 1 }
-              : item
-          )
+              item.id === action.payload.id
+                ? { ...item, qty: item.qty + 1 }
+                : item
+            )
           : [...state.cart, { ...item, qty: 1 }],
       };
     case actionTypes.REMOVE_FROM_CART:
@@ -92,4 +92,4 @@ const Reducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default Reducer;
+export default shopReducer;

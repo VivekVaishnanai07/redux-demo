@@ -1,6 +1,6 @@
 import { CardContent, CardMedia, Typography } from '@material-ui/core';
 import { Button, Card, Grid } from '@mui/material';
-import { addToCart } from "../redux/action"
+import { addToCart } from "../redux/Shopping/shopping-actions"
 import React from 'react';
 import { connect } from 'react-redux';
 
