@@ -1,4 +1,4 @@
-import { Box, FormControl, OutlinedInput } from "@material-ui/core";
+import { FormControl, OutlinedInput } from "@material-ui/core";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { adjustItemQty } from "../../redux/product-redux/product-actions";
@@ -11,17 +11,13 @@ const CartItem = ({ item, adjustQty }) => {
     adjustQty(item.id, e.target.value);
   };
   return (
-    <div>
-      <Box component="form" noValidate autoComplete="off">
-        <FormControl sx={{ width: '5ch' }}>
-          <OutlinedInput
-            type="number"
-            inputProps={{ min: 1 }}
-            value={input}
-            onChange={onChangeHandler} />
-        </FormControl>
-      </Box>
-    </div>
+    <FormControl sx={{ width: '7ch' }} variant="outlined">
+      <OutlinedInput
+        type='number'
+        value={input}
+        onChange={onChangeHandler}
+      />
+    </FormControl>
   );
 };
 
